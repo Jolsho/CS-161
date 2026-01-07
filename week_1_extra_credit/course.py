@@ -62,15 +62,21 @@ class Course:
         self.input_course_credits()
 
     def input_course_id(self):
+        """
+        Prompt user to input <dept_symbol> <course_number>.
+        Parse the input, sanitize it, and assign to respective fields.
+        """
         while True:
             course_id = input("Enter Course Id(ex. MTH 123): ").split()
 
             if len(course_id) < 2:
                 print("Course Id = <Department> <Number>")
                 continue
+
             try:
                 int_num = int(course_id[1])
                 if int_num < MIN_COURSE_NUM or int_num > MAX_COURSE_NUM:
+                    # only doing this concatination to rid char/line warning
                     print(
                         "Number must be" +
                         f" {MIN_COURSE_NUM} <= course_num <= {MAX_COURSE_NUM}."
@@ -87,6 +93,7 @@ class Course:
                 print(f"Department symbol must be {DEPT_CHAR_LIMIT} chars.")
 
             elif len(course_id) > ID_CHAR_LIMIT:
+                # only doing this concatination to rid char/line warning
                 print(
                     "Full Course Number must be less than" +
                     f" {ID_CHAR_LIMIT} chars."""
@@ -97,6 +104,10 @@ class Course:
                 break
 
     def input_course_name(self):
+        """
+        Prompt user to input <course_name>.
+        Parse the input, sanitize it, and assign to respective fields.
+        """
         while True:
             name_in = input("Enter Course Name: ")
             if len(name_in) >= NAME_CHAR_LIMIT:
@@ -107,18 +118,24 @@ class Course:
                 break
 
     def input_course_description(self):
+        """
+        Prompt user to input <course_description>.
+        Parse the input, sanitize it, and assign to respective fields.
+        """
         while True:
             desc_in = input("Enter Course Description: ")
             if len(desc_in) >= DESC_CHAR_LIMIT:
                 # I dont normally do this, but there is a char/line limit
-                print(f'''
-                    Description must be less than {DESC_CHAR_LIMIT} chars.
-                ''')
+                print(f"Description == less than {DESC_CHAR_LIMIT} chars.")
             else:
                 self.description = desc_in
                 break
 
     def input_course_credits(self):
+        """
+        Prompt user to input <course_credits>.
+        Parse the input, sanitize it, and assign to respective fields.
+        """
         while True:
             creds = input("Enter total course credits: ").split()[0]
             try:

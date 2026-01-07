@@ -8,7 +8,6 @@ def bin_search_courses(
         course_id: str
 ) -> Tuple[int, bool]:
     """ Basic binary search over a list of courses.
-        Looking for value at course.id for elements of vals.
         Returning lower bound regardless if value exists.
 
         :Param vals List[Course]
@@ -32,8 +31,7 @@ class CourseDatabase:
     """ CourseDatabase is the handle for all operations.
         It is through this class that everything is done.
 
-        Field: course_lid List[Course]
-            all courses sorted by id
+        Field: course_list List[Course]
     """
 
     def __init__(self):
@@ -41,8 +39,7 @@ class CourseDatabase:
 
     def display_specific_course(self, course_id):
         """ Searches for course by id.
-            If exists call its display method,
-            else print error.
+            If exists call its display method, else print error.
 
             :Param course_id str
         """
@@ -57,8 +54,8 @@ class CourseDatabase:
 
     def display_all_courses(self):
         """ Display all courses.
-            First by department in alphabetical order,
-            then by course number in ascending order.
+            By department in alphabetical order,
+            and course number in ascending order.
         """
         display_header()
         # prints by department alphabetically
@@ -66,11 +63,11 @@ class CourseDatabase:
         for course in self.course_list:
             course.display()
 
-    def display_dept_courses(self, dept_name=""):
+    def display_dept_courses(self, dept_name):
         """ If the dept exists display its courses
             in ascending order of course number.
 
-            :Param dept_name str default=""
+            :Param dept_name str
         """
         dept_name = dept_name.upper()
         display_header()
@@ -91,7 +88,7 @@ class CourseDatabase:
             i += 1
 
     def insert_course(self, course: Course):
-        """ Inserts course in course_list if not exists.
+        """ Inserts course into course_list if not exists.
             If exists print error and return
 
             :Param course Course
@@ -105,6 +102,7 @@ class CourseDatabase:
 
     def remove_course(self, course_id: str):
         """ If course exists remove from course_list.
+            else print error and return.
 
             :Param course_id str
         """
