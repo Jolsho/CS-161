@@ -35,7 +35,48 @@ class CourseDatabase:
     """
 
     def __init__(self):
-        self.course_list: List[Course] = []
+        self.course_list: List[Course] = [
+            Course(
+                "CS 161", "Intro to Computer Science", 4, "CS",
+                "Learning the basics of computer science."
+            ),
+            Course(
+                "CS 256", "Data Structures and Algorithms", 4, "CS",
+                "Well, its data structures and its algorithms..."
+            ),
+            Course(
+                "EC 201", "Intro to Macroeconomics", 4, "CS",
+                "Learning about macro economics."
+            ),
+            Course(
+                "MTH 123", "Linear Algebra", 4, "MTH",
+                "Introduction to linear algebra, taught by professor X"
+            ),
+            Course(
+                "MTH 124", "Linear Algebra II", 4, "MTH",
+                "Continuation of linear algebra, taught by professor X"
+            ),
+            Course(
+                "PHY 101", "Physic I", 4, "PHY",
+                "General Mechanics."
+            ),
+            Course(
+                "PHY 102", "Physic II", 4, "PHY",
+                "Continuation of Mechanics."
+            ),
+            Course(
+                "PHY 103", "Physic III", 4, "PHY",
+                "Wrapping up of Mechanics."
+            ),
+            Course(
+                "WRI 101", "Intro to Writing", 4, "WRI",
+                "Grammar, spelling, punctuation."
+            ),
+            Course(
+                "WRI 227", "Technical Writing", 4, "WRI",
+                "How to write technical papers and the like."
+            ),
+        ]
 
     def display_specific_course(self, course_id):
         """ Searches for course by id.
